@@ -32,7 +32,7 @@ parser.add_argument(
 
 def main(data_fname, video_fname):
     # Load the data
-    Coord = pd.read_csv(data_fname, sep=";")
+    Coord = pd.read_csv("./data/" + data_fname, sep=";")
     Coord = np.array(Coord)
     print(Coord[:,5])
     X = Coord[:,1]
@@ -75,7 +75,7 @@ def main(data_fname, video_fname):
     
     # Animate and save
     anim = FuncAnimation(fig, animate, frames=Coord.shape[0], interval=1, repeat=False)
-    anim.save(video_fname)
+    anim.save("./animations/" + video_fname)
 
 
 if __name__ == "__main__":
